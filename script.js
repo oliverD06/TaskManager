@@ -31,20 +31,30 @@ let removed;
 let userInput = prompt(menu)
 
 // Loops and continues to display the menu until the user ends/closes the Task Manager (Until the user enters CLOSE)
-while(userInput !== "CLOSE"){
-    if (userInput = "TASKS") {
+let running = true
+
+while(running == true){
+    
+    if (userInput === "TASKS") {
         for(let i = 0; i<tasks.length;i++) {
             showTasks+=(tasks[i]+"\n")
         }
-        
+        alert(showTasks);
+        showTasks = '';
+        userInput = prompt(menu)
     }
-    alert(showTasks);
+    
 
-    showTasks = '';
-// CODE TO COMPLETE TASK MANAGER SHOULD BE WRITTEN HERE
+    
 
+    if(userInput === "NEW"){
+        newTask = prompt("Enter the new task:");
+        tasks.push(newTask);
+        alert("Task added successfully!");
+        userInput = prompt(menu)
+    } 
     // Displays the menu again
-    userInput = prompt(menu)
+    
 
     // This break can be commented out after the close feature is complete
     // break;
