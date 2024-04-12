@@ -33,7 +33,7 @@ let userInput = prompt(menu)
 // Loops and continues to display the menu until the user ends/closes the Task Manager (Until the user enters CLOSE)
 let running = true
 
-while(running == true){
+while(userInput !== "CLOSE"){
     
     if (userInput === "TASKS") {
         for(let i = 0; i<tasks.length;i++) {
@@ -53,9 +53,22 @@ while(running == true){
         alert("Task added successfully!");
         userInput = prompt(menu)
     } 
-    // Displays the menu again
-    
 
+    if(userInput === "REMOVE") {
+        for(let i = 0; i<tasks.length;i++) {
+            showTasks+=(tasks[i]+"\n")
+        }
+        num = prompt("Please type the number of the task you want to be removed:");
+        showTasks = '';
+        parseInt(num)
+        num += 1
+        removed = tasks.indexOf(num)
+        tasks = tasks.splice(num, 1)
+        alert("Task successfully removed!")
+        userInput = prompt(menu)
+    }
+    // Displays the menu again
+    userInput = prompt(menu)
     // This break can be commented out after the close feature is complete
     // break;
 }
